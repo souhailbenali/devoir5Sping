@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ layout:decorator="template">
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Ajout des Personnes</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+ <div class="card-header">
+ Modifier des Personnes
+ </div>
+ <div class="card-body">
+<form th:action="@{savePersonne}" method="post">
+<div class="form-group">
+<label class="control-label" hidden>ID Personne :</label>
+ <input type="hidden" name="idPersonne" class="form-control"th:value="${personne.idPersonne}" />
+</div>
+<div class="form-group">
+<label class="control-label">Nom Personne :</label>
+<input type="text" name="nomPersonne" class="form-control"th:value="${personne.nomPersonne}" />
+<span th:errors= ${personne.nomPersonne} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">Taille Personne :</label>
+ <input type="text" name="taillePersonne" class="form-control"th:value="${personne.taillePersonne}" />
+ <span th:errors=${personne.taillePersonne} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">date Enregistrement :</label>
+<input type="date" name="dateEnregistrement" class="form-control"th:value="${personne.dateEnregistrement}"/>
+<span th:errors=${personne.dataEnregistrement} class="text-danger">
+</span>
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Valider</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
